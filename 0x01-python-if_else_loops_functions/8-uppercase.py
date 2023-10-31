@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-def confirm(c):
-    if ord(c) >= ord('A') and ord(c) <= ord('Z'):
-        return True
-    else:
-        return False
 def uppercase(str):
-    for c in str:
-        print("{:c}" .format(ord(c) if confirm(c) else ord(c) - 32), end="")
-    print("\n")
-    
+    change_case = 0
+    for letter in str:
+        if ord(letter) >= ord('a') and ord(letter) <= ord('z'):
+            change_case = 32
+        else:
+            change_case = 0
+        print('{:c}'.format(ord(letter) - change_case), end="")
+    print()
