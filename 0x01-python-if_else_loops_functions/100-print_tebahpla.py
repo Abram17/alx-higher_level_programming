@@ -1,6 +1,3 @@
 #!/usr/bin/python3
-for i in range(25, -1, -1):
-    c = i + ord('A')
-    if i % 2 is 1:
-        c += 32
-    print(f"{c:c}", end="")
+for letter in range(ord('z'), ord('a') - 1, -2):
+    print('{:c}{:c}'.format(letter, letter - 33), end='')
