@@ -1,23 +1,45 @@
 #!/usr/bin/python3
-""" My class module
-"""
+"""Module defining the class Student based on 9-student.py"""
 
-class MyClass:
-    """ My class
+
+class Student:
     """
+    Class that defines properties of student.
 
-    score = 0
+    Attributes:
+        first_name (str): first name of student.
+        last_name (int): last name of student.
+        age (int): age of student.
+    """
+    def __init__(self, first_name, last_name, age):
+        """Creates new instances of Student.
 
-    def __init__(self, name, number = 4):
-        self.__name = name
-        self.number = number
-        self.is_team_red = (self.number % 2) == 0
+        Args:
+            first_name (str): first name of student.
+            last_name (int): last name of student.
+            age (int): age of student.
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-    def win(self):
-        self.score += 1
+    def to_json(self, attrs=None):
+        """Retrieves a dictionary representation of a Student instance.
 
-    def lose(self):
-        self.score -= 1
+        If attrs is a list of strings, only attribute names contained in,
+        this list must be retrieved.
+        Otherwise, all attributes must be retrieved.
 
-    def __str__(self):
-        return "[MyClass] {} - {:d} => {:d}".format(self.__name, self.number, self.score)
+        Returns:
+            dict: dictionary representation.
+        """
+        if attrs is None:
+            return self.__dict__
+
+        new_dict = {}
+        for item in attrs:
+            try:
+                new_dict[item] = self.__dict__[item]
+            except Exception:
+                pass
+        return new_dict

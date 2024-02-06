@@ -1,9 +1,17 @@
 #!/usr/bin/python3
+"""Module containing the function class_to_json"""
 
 
-import json
+def class_to_json(obj):
+    """Returns the dictionary description with simple data structure,
+    (list, dictionary, string, integer and boolean) for JSON serialization,
+    of an object.
 
+    Args:
+        obj (MyClass): object.
 
-def load_from_json_file(filename):
-    with open(filename, "r", encoding="UTF-8") as f:
-        return json.load(f)
+    Returns:
+        dict: dictionary.
+    """
+    # print("type of obj --> {}".format(type(obj)))
+    return obj.__dict__
