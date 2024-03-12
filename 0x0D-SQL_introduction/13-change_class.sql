@@ -1,0 +1,2 @@
+-- Deletes rows where score less that or equal 5
+DELETE FROM second_table WHERE score <= 5;
