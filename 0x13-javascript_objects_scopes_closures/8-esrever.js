@@ -1,5 +1,8 @@
 #!/usr/bin/node
-// reverses a list
+// reverse a list
 exports.esrever = function (list) {
-  return list.sort(() => 1);
+  return list.reduceRight(function (array, current) {
+    array.push(current);
+    return array;
+  }, []);
 };
